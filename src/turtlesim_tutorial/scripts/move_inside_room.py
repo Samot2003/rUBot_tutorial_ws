@@ -27,13 +27,15 @@ def move_turtle(lin_vel,ang_vel,distance):
         vel.angular.x = 0
         vel.angular.y = 0
         vel.angular.z = ang_vel
- 
-        if(robot_x >= distance or robot_y >= distance): # comprova la posicio amb les distancies per no chocar
-            rospy.loginfo("Robot hits a wall")
-            rospy.logwarn("Stopping robot")
-            break
-        pub.publish(vel)
-        rate.sleep()
+
+        if (robot_x != 0 and robot_y != 0):
+            if(robot_x >= 8 or robot_y >= 8 or robot_x <= 3 or robot_y <= 3): # comprova la posicio amb les distancies per no chocar
+                print(robot_x, robot_y)
+                rospy.loginfo("Robot hits a wall")
+                rospy.logwarn("Stopping robot")
+                break
+            pub.publish(vel)
+            rate.sleep()
 
 if __name__ == '__main__':
     try:

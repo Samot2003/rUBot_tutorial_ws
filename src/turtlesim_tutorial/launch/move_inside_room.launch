@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <launch>
-        <arg name="v" default="0.7"/> <!--Defineix el valor dels parametres-->
+        <arg name="v" default="2"/> <!--Defineix el valor dels parametres-->
         <arg name="w" default="0"/>
         <arg name="d" default="7"/>
     <node pkg="turtlesim" type="turtlesim_node" name="turtlesim_node"/> <!--defineix els package i els nodes-->
-    <node pkg="turtlesim_tutorial" type="move_distance.py" name="move_turtle" output="screen" >
+    <node pkg="turtlesim_tutorial" type="move_inside_room.py" name="move_turtle" output="screen" >
         <param name="v" value="$(arg v)"/>
         <param name="w" value="$(arg w)"/>
         <param name="d" value="$(arg d)"/>
